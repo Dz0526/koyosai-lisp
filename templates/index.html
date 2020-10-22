@@ -1,7 +1,22 @@
 {% extends "layouts/default.html" %}
 {% block title %}Welcome to Caveman2{% endblock %}
 {% block content %}
-<div id="main">
-  Welcome to <a href="http://8arrow.org/caveman/">Caveman2</a>!
+<h1>People</h1>
+<div id="people">
+	{% for number in numbers %}
+<h2>
+	{{ number.number}}
+</h2>
+	{% endfor %}
+</div>
+<div id="increment_num">
+	<form action="/increment" method="get">
+	<button type="submit">+++</button>
+	</form>
+</div>
+<div id="decrement_num">
+	<form action="/decrement" method="get">
+	<button type="submit">---</button>
+	</form>
 </div>
 {% endblock %}
