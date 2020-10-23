@@ -1,0 +1,11 @@
+{% extends "layouts/default.html" %}
+{% block title %}People Counter{% endblock %}
+{% block content %}
+<h2>admin</h2>
+<div id="admin">
+	<form action="/" method="post">
+		<label for="passwd">Password:</label>
+		<input type="text" id="passwd" name="passwd" value="{{ passwd }}">
+		<button type="submit">submit</button>
+</div>
+{% endblock %}

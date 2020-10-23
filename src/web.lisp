@@ -24,7 +24,22 @@
 ;; Routing rules
 
 (defroute "/" ()
+  (render #P"login.html"))
+
+(defroute ("/" :method :POST) (&key |passwd|)
+  (with-connection (db)
+    (let ((passwd (retrieve-one (select :passwd
+                                  (from :admin)
+                                  (where (:= :id 1))))) )
+      (if (string= (cadr passwd) |passwd|)
+          (redirect "/admin")
+          (redirect "/")) )))
+
+(defroute "/admin" ()
   (render-people))
+
+(defroute ("/api" :method :GET) ()
+  (render-json (send-data)))
 
 (defroute ("/increment" :method :GET ) ()
   (increment-person)
