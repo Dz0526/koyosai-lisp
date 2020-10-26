@@ -39,7 +39,11 @@
   (render-people))
 
 (defroute ("/api" :method :GET) ()
-  (render-json (send-data)))
+  (with-connection (db)
+    (let ((num (retrieve-one (select :number
+                              (from :person)
+                              (where (:= :id 1)))) )) 
+     (render-json num))))
 
 (defroute ("/increment" :method :GET ) ()
   (increment-person)
