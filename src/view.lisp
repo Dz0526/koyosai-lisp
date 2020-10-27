@@ -32,6 +32,10 @@
 
 (defun render-json (object)
   (setf (getf (response-headers *response*) :content-type) "application/json")
+  (setf (getf (response-headers *response*) :Access-Control-Allow-Origin) "*")
+  (setf (getf (response-headers *response*) :Access-Control-Allow-Methods) "GET, POST, PUT, DELETE")
+  (setf (getf (response-headers *response*) :Access-Control-Allow-Headers) "Origin, Authorization, Accept, Content-Type")
+  (print *response*)
   (encode-json object))
 
 
