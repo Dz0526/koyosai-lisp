@@ -45,11 +45,11 @@
                               (where (:= :id 1)))) )) 
      (render-json num))))
 
-(defroute ("/increment" :method :GET ) ()
+(defroute ("/increment" :method :POST ) ()
   (increment-person)
   (render-people))
 
-(defroute ("/decrement" :method :GET) ()
+(defroute ("/decrement" :method :POST) ()
   (decrement-person)
   (render-people))
 
