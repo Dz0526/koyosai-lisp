@@ -24,7 +24,7 @@
 ;; Routing rules
 
 (defroute "/" ()
-  (render #P"login.html"))
+  (render #P"user-client.html"))
 
 (defroute ("/" :method :POST) (&key |passwd|)
   (with-connection (db)
