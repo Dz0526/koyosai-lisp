@@ -27,5 +27,5 @@ function refreshNumber(){
 }
 window.onload=()=>{
     refreshNumber();
-    setInterval(refreshNumber,60000); //1request/min
+    setInterval(refreshNumber,1000);
 }
